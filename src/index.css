@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 7%;
+    --foreground: 180 100% 95%;
+
+    --card: 220 18% 10%;
+    --card-foreground: 180 100% 95%;
+
+    --popover: 220 18% 10%;
+    --popover-foreground: 180 100% 95%;
+
+    --primary: 160 100% 45%;
+    --primary-foreground: 220 20% 7%;
+
+    --secondary: 220 15% 16%;
+    --secondary-foreground: 180 60% 80%;
+
+    --muted: 220 15% 14%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 190 100% 50%;
+    --accent-foreground: 220 20% 7%;
+
+    --destructive: 0 80% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 18%;
+    --input: 220 15% 16%;
+    --ring: 160 100% 45%;
+
+    --radius: 0.75rem;
+
+    --cyber-glow: 160 100% 45%;
+    --cyber-blue: 190 100% 50%;
+    --cyber-warn: 45 100% 55%;
+    --cyber-danger: 0 80% 55%;
+    --cyber-surface: 220 18% 12%;
+
+    --sidebar-background: 220 18% 10%;
+    --sidebar-foreground: 180 100% 95%;
+    --sidebar-primary: 160 100% 45%;
+    --sidebar-primary-foreground: 220 20% 7%;
+    --sidebar-accent: 220 15% 16%;
+    --sidebar-accent-foreground: 180 100% 95%;
+    --sidebar-border: 220 15% 18%;
+    --sidebar-ring: 160 100% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer utilities {
+  .glow-green {
+    box-shadow: 0 0 15px hsl(var(--cyber-glow) / 0.3),
+                0 0 30px hsl(var(--cyber-glow) / 0.1);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 15px hsl(var(--cyber-blue) / 0.3),
+                0 0 30px hsl(var(--cyber-blue) / 0.1);
+  }
+
+  .glow-text-green {
+    text-shadow: 0 0 10px hsl(var(--cyber-glow) / 0.5),
+                 0 0 20px hsl(var(--cyber-glow) / 0.2);
+  }
+
+  .glow-text-blue {
+    text-shadow: 0 0 10px hsl(var(--cyber-blue) / 0.5),
+                 0 0 20px hsl(var(--cyber-blue) / 0.2);
+  }
+
+  .cyber-grid {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .cyber-card {
+    @apply bg-card border border-border rounded-lg;
+    background: linear-gradient(
+      145deg,
+      hsl(var(--card)) 0%,
+      hsl(var(--cyber-surface)) 100%
+    );
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
